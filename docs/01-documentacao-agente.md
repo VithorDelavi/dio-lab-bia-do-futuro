@@ -59,10 +59,10 @@ flowchart TD
 
 | Componente | Descrição |
 |------------|-----------|
-| Interface | [ex: Chatbot em Streamlit] |
-| LLM | [ex: GPT-4 via API] |
-| Base de Conhecimento | [ex: JSON/CSV com dados do cliente] |
-| Validação | [ex: Checagem de alucinações] |
+| Interface | Aplicação de chatbot desenvolvida com Streamlit para permitir a interação com o DengueBot. |
+| LLM | Modelo de linguagem utilizado para interpretar as perguntas do usuário e elaborar as respostas com base nas informações fornecidas. |
+| Base de Conhecimento | Arquivos estruturados contendo informações sobre dengue, prevenção, transmissão, sintomas, ciclo do Aedes aegypti e possíveis criadouros. |
+| Validação | Regras no prompt para restringir as respostas ao conteúdo disponível na base de conhecimento e orientar o agente a informar quando não possuir dados suficientes. |
 
 ---
 
