@@ -1,42 +1,29 @@
+```json
 [
   {
-    "nome": "Tesouro Selic",
-    "categoria": "renda_fixa",
-    "risco": "baixo",
-    "rentabilidade": "100% da Selic",
-    "aporte_minimo": 30.00,
-    "indicado_para": "Reserva de emergência e iniciantes"
+    "tema": "Aedes aegypti",
+    "informacao": "O Aedes aegypti é o mosquito que pode transmitir o vírus da dengue.",
+    "categoria": "mosquito"
   },
   {
-    "nome": "CDB Liquidez Diária",
-    "categoria": "renda_fixa",
-    "risco": "baixo",
-    "rentabilidade": "102% do CDI",
-    "aporte_minimo": 100.00,
-    "indicado_para": "Quem busca segurança com rendimento diário"
+    "tema": "Ciclo de vida",
+    "informacao": "O mosquito passa por diferentes fases de desenvolvimento: ovo, larva, pupa e adulto.",
+    "categoria": "ciclo_de_vida"
   },
   {
-    "nome": "LCI/LCA",
-    "categoria": "renda_fixa",
-    "risco": "baixo",
-    "rentabilidade": "95% do CDI",
-    "aporte_minimo": 1000.00,
-    "indicado_para": "Quem pode esperar 90 dias (isento de IR)"
+    "tema": "Criadouros",
+    "informacao": "O mosquito pode se reproduzir em recipientes e locais que acumulam água.",
+    "categoria": "criadouros"
   },
   {
-    "nome": "Fundo Multimercado",
-    "categoria": "fundo",
-    "risco": "medio",
-    "rentabilidade": "CDI + 2%",
-    "aporte_minimo": 500.00,
-    "indicado_para": "Perfil moderado que busca diversificação"
+    "tema": "Prevenção",
+    "informacao": "Eliminar recipientes com água acumulada ajuda a reduzir possíveis criadouros do mosquito.",
+    "categoria": "prevencao"
   },
   {
-    "nome": "Fundo de Ações",
-    "categoria": "fundo",
-    "risco": "alto",
-    "rentabilidade": "Variável",
-    "aporte_minimo": 100.00,
-    "indicado_para": "Perfil arrojado com foco no longo prazo"
+    "tema": "Ambiente",
+    "informacao": "É importante verificar regularmente áreas internas e externas onde possa ocorrer acúmulo de água.",
+    "categoria": "prevencao"
   }
 ]
+```
