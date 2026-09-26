@@ -20,7 +20,7 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 
 > Você modificou ou expandiu os dados mockados? Descreva aqui.
 
-[Sua descrição aqui]
+Os dados foram adaptados do contexto financeiro original do projeto para o contexto de educação e prevenção da dengue. A base de conhecimento foi organizada em arquivos JSON separados por tema, contendo informações sobre prevenção, sintomas, o mosquito Aedes aegypti e orientações gerais de saúde.
 
 ---
 
@@ -29,12 +29,12 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 ### Como os dados são carregados?
 > Descreva como seu agente acessa a base de conhecimento.
 
-[ex: Os JSON/CSV são carregados no início da sessão e incluídos no contexto do prompt]
+Os arquivos JSON da pasta `data/` são carregados pela aplicação quando o DengueBot é iniciado. As informações desses arquivos são organizadas e disponibilizadas como contexto para o agente durante as interações com o usuário.
 
 ### Como os dados são usados no prompt?
 > Os dados vão no system prompt? São consultados dinamicamente?
 
-[Sua descrição aqui]
+As informações da base de conhecimento são inseridas no contexto enviado ao modelo de linguagem junto às instruções do DengueBot. O agente deve utilizar essas informações para responder às perguntas do usuário, sem inventar dados que não estejam disponíveis na base. Quando a informação solicitada não estiver presente, o agente deve informar que não possui dados suficientes para responder.
 
 ---
 
@@ -42,14 +42,14 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 
 > Mostre um exemplo de como os dados são formatados para o agente.
 
-```
-Dados do Cliente:
-- Nome: João Silva
-- Perfil: Moderado
-- Saldo disponível: R$ 5.000
+Tema: Prevenção da dengue
 
-Últimas transações:
-- 01/11: Supermercado - R$ 450
-- 03/11: Streaming - R$ 55
-...
-```
+Informações disponíveis:
+- Medidas de prevenção contra a dengue
+- Identificação de possíveis criadouros do Aedes aegypti
+- Informações sobre sintomas da dengue
+- Informações sobre o ciclo de vida do Aedes aegypti
+- Orientações gerais e situações em que o usuário deve buscar atendimento profissional
+
+Regra de resposta:
+Utilize somente as informações disponíveis na base de conhecimento. Caso a informação solicitada não esteja disponível, informe ao usuário que não possui dados suficientes para responder e não invente uma resposta.
