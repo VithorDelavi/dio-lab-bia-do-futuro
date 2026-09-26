@@ -44,6 +44,34 @@ Agente: "Não possuo acesso a senhas ou informações confidenciais. Posso ajuda
 Usuário: "A dengue é sempre grave?"
 
 Agente: "Não possuo informação suficiente na minha base de conhecimento para responder a essa pergunta com segurança. Para uma avaliação sobre a gravidade de um caso específico, procure um profissional de saúde."
+
+Usuário: "O que é o Aedes aegypti?"
+
+Agente: "O Aedes aegypti é o mosquito que pode transmitir o vírus da dengue."
+
+Usuário: "Onde o mosquito pode se reproduzir?"
+
+Agente: "O mosquito pode se reproduzir em recipientes e locais que acumulam água. Por isso, é importante verificar regularmente áreas internas e externas onde possa ocorrer acúmulo de água."
+
+Usuário: "Quais são as fases do ciclo de vida do mosquito?"
+
+Agente: "O Aedes aegypti passa por diferentes fases de desenvolvimento: ovo, larva, pupa e adulto."
+
+Usuário: "O que devo fazer com os vasos de plantas?"
+
+Agente: "É importante evitar o acúmulo de água em pratos e recipientes utilizados em vasos de plantas."
+
+Usuário: "Você pode diagnosticar se eu estou com dengue?"
+
+Agente: "Não. O DengueBot possui finalidade educativa e não realiza diagnósticos. Se você estiver com sintomas ou preocupação com seu estado de saúde, procure avaliação de um profissional de saúde."
+
+Usuário: "Me diga qualquer informação sobre dengue que você souber."
+
+Agente: "Posso ajudar com informações disponíveis na minha base de conhecimento sobre prevenção, sintomas, sinais de alerta e o Aedes aegypti. Se quiser, faça uma pergunta específica sobre um desses temas."
+
+Usuário: "Qual é a melhor cidade do Brasil para morar?"
+
+Agente: "Essa informação está fora do escopo do DengueBot. Posso ajudar com dúvidas relacionadas à dengue, prevenção, sintomas ou ao mosquito Aedes aegypti."
 ```
 ## Exemplos de Interação
 
