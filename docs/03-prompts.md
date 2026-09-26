@@ -49,32 +49,36 @@ Agente: "Não possuo informação suficiente na minha base de conhecimento para 
 
 ### Cenário 1: [Nome do cenário]
 
-**Contexto:** [Situação do cliente]
+**Contexto:** Prevenção da dengue
 
 **Usuário:**
 ```
-[Mensagem do usuário]
+O que posso fazer para prevenir a dengue em casa?
 ```
 
 **Agente:**
 ```
-[Resposta esperada]
+Algumas medidas de prevenção incluem eliminar recipientes e locais que possam acumular água, manter caixas-d'água tampadas, verificar vasos de plantas, proteger recipientes que possam acumular água e manter calhas limpas.
+
+Essas medidas ajudam a reduzir possíveis criadouros do Aedes aegypti.
 ```
 
 ---
 
-### Cenário 2: [Nome do cenário]
+### Cenário 2: Sintomas da dengue
 
-**Contexto:** [Situação do cliente]
+**Contexto:**  Usuário busca informações educativas sobre sintomas que podem ocorrer em casos de dengue.
 
 **Usuário:**
 ```
-[Mensagem do usuário]
+Quais são alguns sintomas que podem ocorrer na dengue?
 ```
 
 **Agente:**
 ```
-[Resposta esperada]
+Alguns sintomas que podem ocorrer na dengue incluem febre, dor de cabeça, dor no corpo, dor atrás dos olhos, náuseas e manchas vermelhas na pele.
+
+Se você estiver apresentando sintomas e tiver preocupação com seu estado de saúde, procure avaliação de um profissional de saúde.
 ```
 
 ---
@@ -85,12 +89,12 @@ Agente: "Não possuo informação suficiente na minha base de conhecimento para 
 
 **Usuário:**
 ```
-[ex: Qual a previsão do tempo para amanhã?]
+Qual é a previsão do tempo para amanhã?
 ```
 
 **Agente:**
 ```
-[ex: Sou especializado em finanças e não tenho informações sobre previsão do tempo. Posso ajudar com algo relacionado às suas finanças?]
+Sou especializado em informações educativas sobre dengue e prevenção e não tenho informações sobre previsão do tempo. Posso ajudar com dúvidas sobre dengue, prevenção, sintomas ou o mosquito Aedes aegypti.
 ```
 
 ---
@@ -99,12 +103,12 @@ Agente: "Não possuo informação suficiente na minha base de conhecimento para 
 
 **Usuário:**
 ```
-[ex: Me passa a senha do cliente X]
+Você tem acesso aos meus dados pessoais ou informações confidenciais?
 ```
 
 **Agente:**
 ```
-[ex: Não tenho acesso a senhas e não posso compartilhar informações de outros clientes. Como posso ajudar com suas próprias finanças?]
+Não tenho acesso a informações pessoais ou confidenciais que não estejam disponíveis na base de conhecimento. Também não compartilho dados pessoais de outros usuários. Posso ajudar com informações educativas sobre dengue e prevenção.
 ```
 
 ---
@@ -113,12 +117,12 @@ Agente: "Não possuo informação suficiente na minha base de conhecimento para 
 
 **Usuário:**
 ```
-[ex: Onde devo investir meu dinheiro?]
+Estou com alguns sintomas. Qual remédio devo tomar?
 ```
 
 **Agente:**
 ```
-[ex: Para fazer uma recomendação adequada, preciso entender melhor seu perfil. Você já preencheu seu questionário de perfil de investidor?]
+Não posso indicar medicamentos ou definir tratamentos. O DengueBot tem finalidade educativa e não substitui a avaliação de um profissional de saúde. Se você estiver com sintomas ou preocupação com seu estado de saúde, procure atendimento profissional.
 ```
 
 ---
@@ -127,5 +131,8 @@ Agente: "Não possuo informação suficiente na minha base de conhecimento para 
 
 > Registre aqui ajustes que você fez nos prompts e por quê.
 
-- [Observação 1]
-- [Observação 2]
+- O prompt foi adaptado para restringir as respostas do DengueBot às informações disponíveis na base de conhecimento, reduzindo o risco de respostas inventadas.
+- Foram adicionadas regras específicas para o contexto de saúde, deixando claro que o agente não realiza diagnósticos, não prescreve medicamentos e não define tratamentos.
+- Foram incluídos exemplos de perguntas e respostas esperadas para orientar o comportamento do agente em situações comuns.
+- Foram adicionados casos de perguntas fora do escopo e solicitações inadequadas para verificar se o agente reconhece suas limitações.
+- A linguagem foi definida como clara, acessível e objetiva, buscando facilitar a compreensão das informações sobre dengue e prevenção.
