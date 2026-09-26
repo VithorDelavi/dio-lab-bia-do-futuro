@@ -1,0 +1,147 @@
+[
+  {
+    "sintoma": "Febre alta",
+    "descricao": "A dengue pode causar febre alta, geralmente acima de 38 °C, com início abrupto.",
+    "categoria": "sintoma_comum"
+  },
+  {
+    "sintoma": "Dor no corpo",
+    "descricao": "Dores no corpo podem ocorrer em pessoas com dengue.",
+    "categoria": "sintoma_comum"
+  },
+  {
+    "sintoma": "Dor nas articulações",
+    "descricao": "Dor nas articulações pode ocorrer em pessoas com dengue.",
+    "categoria": "sintoma_comum"
+  },
+  {
+    "sintoma": "Dor atrás dos olhos",
+    "descricao": "Dor atrás dos olhos pode ocorrer em pessoas com dengue.",
+    "categoria": "sintoma_comum"
+  },
+  {
+    "sintoma": "Mal-estar",
+    "descricao": "Mal-estar pode ocorrer em pessoas com dengue.",
+    "categoria": "sintoma_comum"
+  },
+  {
+    "sintoma": "Falta de apetite",
+    "descricao": "Falta de apetite pode ocorrer em pessoas com dengue.",
+    "categoria": "sintoma_comum"
+  },
+  {
+    "sintoma": "Dor de cabeça",
+    "descricao": "Dor de cabeça pode ocorrer em pessoas com dengue.",
+    "categoria": "sintoma_comum"
+  },
+  {
+    "sintoma": "Manchas vermelhas na pele",
+    "descricao": "Manchas vermelhas podem aparecer na pele de pessoas com dengue.",
+    "categoria": "sintoma_comum"
+  },
+  {
+    "sintoma": "Fraqueza",
+    "descricao": "Fraqueza pode ocorrer durante a infecção por dengue.",
+    "categoria": "sintoma_comum"
+  },
+  {
+    "sintoma": "Prostração",
+    "descricao": "Prostração pode ocorrer durante a infecção por dengue.",
+    "categoria": "sintoma_comum"
+  },
+  {
+    "sintoma": "Erupções na pele",
+    "descricao": "Erupções na pele podem ocorrer em pessoas com dengue.",
+    "categoria": "sintoma_comum"
+  },
+  {
+    "sintoma": "Coceira",
+    "descricao": "Coceira na pele pode ocorrer em pessoas com dengue.",
+    "categoria": "sintoma_comum"
+  },
+  {
+    "sintoma": "Dor abdominal intensa e contínua",
+    "descricao": "Dor abdominal intensa e contínua é um sinal de alarme da dengue.",
+    "categoria": "sinal_de_alerta"
+  },
+  {
+    "sintoma": "Vômitos persistentes",
+    "descricao": "Vômitos persistentes são um sinal de alarme da dengue.",
+    "categoria": "sinal_de_alerta"
+  },
+  {
+    "sintoma": "Acúmulo de líquidos",
+    "descricao": "O acúmulo de líquidos em cavidades corporais pode ser um sinal de alarme da dengue.",
+    "categoria": "sinal_de_alerta"
+  },
+  {
+    "sintoma": "Hipotensão postural",
+    "descricao": "Hipotensão postural pode ser um sinal de alarme da dengue.",
+    "categoria": "sinal_de_alerta"
+  },
+  {
+    "sintoma": "Lipotimia",
+    "descricao": "Lipotimia pode ser um sinal de alarme da dengue.",
+    "categoria": "sinal_de_alerta"
+  },
+  {
+    "sintoma": "Letargia",
+    "descricao": "Letargia pode ser um sinal de alarme da dengue.",
+    "categoria": "sinal_de_alerta"
+  },
+  {
+    "sintoma": "Irritabilidade",
+    "descricao": "Irritabilidade pode ser um sinal de alarme da dengue.",
+    "categoria": "sinal_de_alerta"
+  },
+  {
+    "sintoma": "Aumento do fígado",
+    "descricao": "Aumento do fígado superior a 2 cm abaixo do rebordo costal pode ser um sinal de alarme da dengue.",
+    "categoria": "sinal_de_alerta"
+  },
+  {
+    "sintoma": "Sangramento de mucosa",
+    "descricao": "Sangramento de mucosa pode ser um sinal de alarme da dengue.",
+    "categoria": "sinal_de_alerta"
+  },
+  {
+    "sintoma": "Aumento progressivo do hematócrito",
+    "descricao": "Aumento progressivo do hematócrito pode ser um sinal de alarme da dengue.",
+    "categoria": "sinal_de_alerta"
+  },
+  {
+    "sintoma": "Diminuição repentina da febre",
+    "descricao": "A diminuição repentina da febre pode ocorrer no período em que sinais de alarme podem aparecer.",
+    "categoria": "sinal_de_alerta"
+  },
+  {
+    "sintoma": "Diminuição do volume de urina",
+    "descricao": "A diminuição do volume de urina pode ser um sinal que exige atenção durante a dengue.",
+    "categoria": "sinal_de_alerta"
+  },
+  {
+    "sintoma": "Tontura ao mudar de posição",
+    "descricao": "Tontura ao mudar de posição pode ser um sinal de alerta durante a dengue.",
+    "categoria": "sinal_de_alerta"
+  },
+  {
+    "sintoma": "Dificuldade para respirar",
+    "descricao": "Dificuldade para respirar pode ocorrer em situações de agravamento da dengue.",
+    "categoria": "sinal_de_alerta"
+  },
+  {
+    "sintoma": "Agitação",
+    "descricao": "Agitação pode ser observada como sinal de alerta durante a dengue.",
+    "categoria": "sinal_de_alerta"
+  },
+  {
+    "sintoma": "Sonolência intensa",
+    "descricao": "Sonolência intensa pode ser observada como sinal de alerta durante a dengue.",
+    "categoria": "sinal_de_alerta"
+  },
+  {
+    "sintoma": "Suor frio",
+    "descricao": "Suor frio pode ser observado em situações de agravamento da dengue.",
+    "categoria": "sinal_de_alerta"
+  }
+]
