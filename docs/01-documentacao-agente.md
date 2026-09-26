@@ -70,12 +70,12 @@ flowchart TD
 
 ### Estratégias Adotadas
 
-- [ ] [ex: Agente só responde com base nos dados fornecidos]
-- [ ] [ex: Respostas incluem fonte da informação]
-- [ ] [ex: Quando não sabe, admite e redireciona]
-- [ ] [ex: Não faz recomendações de investimento sem perfil do cliente]
+- [x] Agente responde com base nas informações disponíveis em sua base de conhecimento
+- [x] Quando não possui informação suficiente, admite a limitação e informa o usuário
+- [x] Agente evita inventar informações ou apresentar suposições como fatos
+- [x] Agente orienta o usuário a buscar atendimento profissional quando a situação exigir avaliação de saúde
 
 ### Limitações Declaradas
 > O que o agente NÃO faz?
 
-[Liste aqui as limitações explícitas do agente]
+O DengueBot é um assistente educativo e não substitui profissionais ou serviços de saúde. Ele não realiza diagnóstico, não prescreve medicamentos e não determina tratamentos. Suas respostas são limitadas às informações disponíveis em sua base de conhecimento. Quando não houver informação suficiente para responder com segurança, o agente deverá informar essa limitação ao usuário.
