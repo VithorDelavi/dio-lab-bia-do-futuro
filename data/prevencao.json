@@ -1,0 +1,26 @@
+{
+  "tema": "Prevenção da dengue",
+  "medidas": [
+    {
+      "medida": "Eliminar água parada",
+      "descricao": "Verificar e eliminar recipientes e locais que possam acumular água."
+    },
+    {
+      "medida": "Manter caixas-d'água tampadas",
+      "descricao": "Manter reservatórios de água devidamente fechados para evitar o acesso do mosquito."
+    },
+    {
+      "medida": "Verificar vasos de plantas",
+      "descricao": "Evitar o acúmulo de água em pratos e recipientes utilizados em vasos de plantas."
+    },
+    {
+      "medida": "Manter recipientes protegidos",
+      "descricao": "Guardar ou manter protegidos objetos que possam acumular água, como baldes, garrafas e outros recipientes."
+    },
+    {
+      "medida": "Manter calhas limpas",
+      "descricao": "Verificar se as calhas estão limpas e sem acúmulo de água."
+    }
+  ],
+  "objetivo": "Reduzir a presença de possíveis criadouros do Aedes aegypti e contribuir para a prevenção da dengue."
+}
