@@ -1,281 +1,199 @@
-# 🦟 DengueBot — Assistente Educativo sobre Dengue com IA
+# 🦟 DengueBot — Assistente Virtual Educativo com IA
 
-## 📌 Sobre o Projeto
+## Contexto
 
-O **DengueBot** é um assistente virtual educativo desenvolvido como projeto prático do desafio **BIA do Futuro**, da DIO.
+Os assistentes virtuais com Inteligência Artificial podem ser utilizados para facilitar o acesso a informações de diferentes áreas. Neste desafio, a proposta original é idealizar e prototipar um agente inteligente utilizando IA Generativa, uma base de conhecimento e mecanismos de segurança.
 
-A proposta original do desafio é desenvolver um agente inteligente utilizando IA Generativa, base de conhecimento e mecanismos de segurança. Neste projeto, o contexto financeiro original foi adaptado para a área da **saúde pública**, com foco na educação e prevenção da dengue.
+Neste projeto, a ideia foi adaptada para o contexto de **educação em saúde**, criando o **DengueBot**, um assistente virtual educativo sobre dengue.
 
-O DengueBot foi desenvolvido para responder perguntas sobre:
+O DengueBot utiliza IA Generativa para:
 
-- 🦟 Aedes aegypti;
-- 🔄 ciclo de vida do mosquito;
-- 💧 possíveis criadouros;
-- 🛡️ prevenção da dengue;
-- 🤒 sintomas comuns;
-- ⚠️ sinais de alerta.
+- **Responder dúvidas** sobre dengue, prevenção e o mosquito Aedes aegypti;
+- **Utilizar uma base de conhecimento** organizada para orientar suas respostas;
+- **Apresentar informações de forma simples e clara**;
+- **Evitar informações inventadas** sempre que possível;
+- **Informar quando não possui determinada informação**;
+- **Manter limites de segurança**, evitando diagnósticos, prescrições de medicamentos e orientações de tratamento.
 
-O agente utiliza uma base de conhecimento local e um modelo de linguagem executado localmente, buscando manter as respostas limitadas às informações disponíveis no projeto.
-
----
-
-## 🎯 Objetivo
-
-Facilitar o acesso a informações educativas sobre dengue por meio de uma interface conversacional simples e acessível.
-
-O projeto também busca demonstrar, na prática, conceitos de:
-
-- Inteligência Artificial Generativa;
-- Engenharia de Prompts;
-- integração entre LLM e base de conhecimento;
-- desenvolvimento de aplicações com Python;
-- segurança e prevenção de alucinações em aplicações de IA;
-- avaliação de respostas de um agente virtual.
+> [!TIP]
+> Na pasta [`examples/`](./examples/) você encontra referências de implementação para cada etapa deste desafio.
 
 ---
 
-## 🧠 Como o DengueBot Funciona
+## O Que Você Deve Entregar
 
-O funcionamento da aplicação pode ser resumido pelo seguinte fluxo:
+### 1. Documentação do Agente
 
-```mermaid
-flowchart TD
-    A[Usuário] --> B[Interface Streamlit]
-    B --> C[DengueBot]
-    C --> D[Modelo Qwen2.5 3B]
-    D --> E[Base de Conhecimento]
-    E --> D
-    D --> F[Resposta]
-    F --> A
-```
+Defina **o que** seu agente faz e **como** ele funciona:
 
-A aplicação carrega os arquivos da base de conhecimento, monta o contexto utilizado pelo modelo e envia a pergunta do usuário juntamente com as instruções do DengueBot.
+- **Caso de Uso:** Qual problema o agente resolve? O DengueBot foi desenvolvido para facilitar o acesso a informações educativas sobre dengue e prevenção.
+- **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
+- **Arquitetura:** Fluxo de dados e integração com a base de conhecimento.
+- **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
 
-O modelo utilizado é o **Qwen2.5 3B**, executado localmente através do **Ollama**.
+📄 **Documentação do projeto:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
 
 ---
 
-## 📚 Base de Conhecimento
+### 2. Base de Conhecimento
 
-A base de conhecimento está localizada na pasta `data/`.
+A base de conhecimento do DengueBot está organizada na pasta [`data/`](./data/):
 
 | Arquivo | Formato | Descrição |
-|---|---|---|
-| `aedes_aegypti.json` | JSON | Informações sobre o mosquito, ciclo de vida, criadouros e prevenção |
-| `prevencao.json` | JSON | Medidas para prevenção da dengue |
-| `sintomas.json` | JSON | Sintomas comuns e sinais de alerta |
-| `historico_atendimento.csv` | CSV | Histórico fictício de interações relacionadas ao tema |
+|---------|---------|-----------|
+| `aedes_aegypti.json` | JSON | Informações sobre o Aedes aegypti, ciclo de vida, criadouros e prevenção |
+| `historico_atendimento.csv` | CSV | Histórico fictício de atendimentos relacionados ao tema |
+| `prevencao.json` | JSON | Medidas de prevenção da dengue |
+| `sintomas.json` | JSON | Sintomas comuns e sinais de alerta da dengue |
 
-Os dados são utilizados como contexto para orientar as respostas do agente.
+Os dados foram adaptados ao contexto do projeto para fornecer informações específicas ao DengueBot.
 
----
-
-## 🛡️ Segurança e Controle de Respostas
-
-Como o DengueBot é voltado para educação em saúde, foram utilizadas regras para reduzir respostas inadequadas ou informações inventadas.
-
-O agente é instruído a:
-
-- utilizar as informações disponíveis na base de conhecimento;
-- não inventar informações;
-- não utilizar conhecimento externo deliberadamente;
-- informar quando uma informação não está disponível na base;
-- não realizar diagnósticos;
-- não prescrever medicamentos;
-- não definir tratamentos;
-- orientar a procura de um profissional de saúde em situações relacionadas a tratamento ou situações pessoais de saúde.
-
-Além disso, determinadas perguntas relacionadas a medicamentos e tratamento possuem uma validação antes da chamada ao modelo, evitando que o agente gere recomendações de medicamentos.
+📄 **Documentação da base:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
 
 ---
 
-## 💬 Exemplos de Perguntas
+### 3. Prompts do Agente
 
-### Sintomas
+Documente os prompts que definem o comportamento do seu agente:
 
-> Quais são os sintomas comuns da dengue?
+- **System Prompt:** Instruções gerais de comportamento e restrições;
+- **Exemplos de Interação:** Cenários de uso com entrada e saída esperada;
+- **Tratamento de Edge Cases:** Como o agente lida com situações limite, informações inexistentes e perguntas fora do escopo.
 
-O agente consulta os dados classificados como `sintoma_comum` na base de conhecimento.
+O prompt do DengueBot estabelece que o agente deve utilizar as informações disponíveis na base de conhecimento, evitar inventar informações e informar suas limitações quando necessário.
 
-### Sinais de alerta
-
-> Quais são os sinais de alerta da dengue?
-
-O agente consulta os dados classificados como `sinal_de_alerta`.
-
-### Prevenção
-
-> Como prevenir a dengue?
-
-O agente utiliza as medidas disponíveis em `prevencao.json`.
-
-### Aedes aegypti
-
-> Qual é o ciclo de vida do Aedes aegypti?
-
-A resposta utiliza a informação disponível na base sobre as fases de desenvolvimento do mosquito.
-
-### Informação não disponível
-
-> Qual é a cor do Aedes aegypti?
-
-Quando a informação não está disponível na base, o agente informa sua limitação.
-
-### Medicamentos
-
-> Qual remédio devo tomar para dengue?
-
-O agente não fornece indicação de medicamento ou tratamento e orienta a procura de um profissional de saúde.
+📄 **Documentação dos prompts:** [`docs/03-prompts.md`](./docs/03-prompts.md)
 
 ---
 
-## 🧪 Avaliação e Métricas
+### 4. Aplicação Funcional
 
-O DengueBot foi avaliado utilizando testes estruturados envolvendo diferentes tipos de perguntas.
+Foi desenvolvido um **protótipo funcional** do DengueBot utilizando:
 
-Foram testados cenários relacionados a:
+- Chatbot interativo desenvolvido com **Streamlit**;
+- Integração com um modelo de linguagem local;
+- Modelo **Qwen2.5 3B** executado através do **Ollama**;
+- Conexão com a base de conhecimento em arquivos JSON e CSV;
+- Validações para situações relacionadas a medicamentos e tratamento.
 
-- sintomas comuns;
-- sinais de alerta;
-- prevenção;
-- ciclo de vida do mosquito;
-- informações inexistentes na base;
-- medicamentos;
-- situações pessoais de saúde;
-- perguntas fora do escopo;
-- tentativas de induzir o modelo a utilizar conhecimento externo.
-
-As principais métricas consideradas foram:
-
-| Métrica | Objetivo |
-|---|---|
-| **Assertividade** | Verificar se a resposta está de acordo com a pergunta e a base |
-| **Segurança** | Verificar se o agente evita informações não disponíveis e orientações médicas indevidas |
-| **Coerência** | Verificar se o comportamento permanece adequado ao papel do DengueBot |
-
-Os resultados e cenários detalhados estão disponíveis em:
-
-[`docs/04-metricas.md`](./docs/04-metricas.md)
+📁 **Código da aplicação:** [`src/app.py`](./src/app.py)
 
 ---
 
-## 🖥️ Aplicação
+### 5. Avaliação e Métricas
 
-A interface foi desenvolvida utilizando **Streamlit**, proporcionando uma experiência de conversa diretamente pelo navegador.
+A qualidade do DengueBot foi avaliada por meio de testes estruturados envolvendo diferentes tipos de perguntas.
 
-O código principal da aplicação está em:
+Foram avaliados aspectos como:
 
-[`src/app.py`](./src/app.py)
+- **Assertividade** das respostas;
+- **Segurança** e prevenção de informações inventadas;
+- **Coerência** com o papel definido para o agente;
+- Comportamento diante de informações inexistentes;
+- Comportamento diante de perguntas fora do escopo;
+- Comportamento diante de perguntas relacionadas a medicamentos e tratamento.
 
----
-
-## ⚙️ Tecnologias Utilizadas
-
-| Tecnologia | Utilização |
-|---|---|
-| **Python** | Desenvolvimento da aplicação |
-| **Streamlit** | Interface web do chatbot |
-| **Ollama** | Execução local do modelo de linguagem |
-| **Qwen2.5 3B** | Modelo de linguagem utilizado |
-| **JSON** | Armazenamento da base de conhecimento |
-| **CSV** | Armazenamento do histórico fictício |
-| **Git/GitHub** | Versionamento do projeto |
-| **Mermaid** | Diagrama da arquitetura |
+📄 **Avaliação e métricas:** [`docs/04-metricas.md`](./docs/04-metricas.md)
 
 ---
 
-## ▶️ Como Executar
+### 6. Pitch
 
-### 1. Pré-requisitos
+O projeto também possui um roteiro de **pitch de 3 minutos**, apresentando:
 
-É necessário ter instalado:
+- Qual problema o DengueBot busca resolver;
+- Como a solução funciona;
+- Como a Inteligência Artificial é utilizada;
+- Como a base de conhecimento contribui para as respostas;
+- Quais são os mecanismos de segurança;
+- Quais possibilidades de evolução existem para o projeto.
 
-- Python;
-- Ollama;
-- modelo `qwen2.5:3b`.
-
-### 2. Instalar as dependências
-
-No terminal, dentro da pasta do projeto:
-
-```bash
-pip install pandas streamlit ollama
-```
-
-### 3. Baixar o modelo
-
-```bash
-ollama pull qwen2.5:3b
-```
-
-### 4. Executar a aplicação
-
-```bash
-streamlit run src/app.py
-```
-
-Após executar o comando, o Streamlit disponibilizará a aplicação no navegador.
+📄 **Roteiro do pitch:** [`docs/05-pitch.md`](./docs/05-pitch.md)
 
 ---
 
-## 📁 Estrutura do Repositório
+## Ferramentas Sugeridas
+
+O desafio permite utilizar diferentes ferramentas para desenvolver o agente.
+
+Neste projeto, foram utilizadas principalmente:
+
+| Categoria | Ferramentas |
+|-----------|-------------|
+| **LLM** | [Ollama](https://ollama.ai/) + Qwen2.5 3B |
+| **Desenvolvimento** | [Python](https://www.python.org/) + [Streamlit](https://streamlit.io/) |
+| **Versionamento** | [Git](https://git-scm.com/) + [GitHub](https://github.com/) |
+| **Diagramas** | [Mermaid](https://mermaid.js.org/) |
+
+Outras ferramentas sugeridas originalmente pelo desafio também podem ser utilizadas:
+
+| Categoria | Ferramentas |
+|-----------|-------------|
+| **LLMs** | [ChatGPT](https://chat.openai.com/), [Copilot](https://copilot.microsoft.com/), [Gemini](https://gemini.google.com/), [Claude](https://claude.ai/), [Ollama](https://ollama.ai/) |
+| **Desenvolvimento** | [Streamlit](https://streamlit.io/), [Gradio](https://www.gradio.app/), [Google Colab](https://colab.research.google.com/) |
+| **Orquestração** | [LangChain](https://www.langchain.com/), [LangFlow](https://www.langflow.org/), [CrewAI](https://www.crewai.com/) |
+| **Diagramas** | [Mermaid](https://mermaid.js.org/), [Draw.io](https://app.diagrams.net/), [Excalidraw](https://excalidraw.com/) |
+
+---
+
+## Estrutura do Repositório
 
 ```text
-dio-lab-bia-do-futuro/
+📁 dio-lab-bia-do-futuro/
 │
 ├── 📄 README.md
 │
-├── 📁 data/
-│   ├── aedes_aegypti.json
-│   ├── historico_atendimento.csv
-│   ├── prevencao.json
-│   └── sintomas.json
+├── 📁 data/                              # Base de conhecimento
+│   ├── aedes_aegypti.json                 # Informações sobre o Aedes aegypti
+│   ├── historico_atendimento.csv          # Histórico fictício de atendimentos
+│   ├── prevencao.json                     # Medidas de prevenção
+│   └── sintomas.json                      # Sintomas e sinais de alerta
 │
-├── 📁 docs/
-│   ├── 01-documentacao-agente.md
-│   ├── 02-base-conhecimento.md
-│   ├── 03-prompts.md
-│   ├── 04-metricas.md
-│   └── 05-pitch.md
+├── 📁 docs/                              # Documentação do projeto
+│   ├── 01-documentacao-agente.md          # Caso de uso e arquitetura
+│   ├── 02-base-conhecimento.md            # Estratégia da base de conhecimento
+│   ├── 03-prompts.md                      # Prompts e comportamento do agente
+│   ├── 04-metricas.md                     # Avaliação e métricas
+│   └── 05-pitch.md                        # Roteiro do pitch
 │
-├── 📁 src/
-│   └── app.py
+├── 📁 src/                               # Código da aplicação
+│   └── app.py                             # Aplicação Streamlit
 │
-├── 📁 assets/
+├── 📁 assets/                            # Imagens e outros recursos
 │
-└── 📁 examples/
+└── 📁 examples/                          # Referências e exemplos
+    └── README.md
 ```
 
 ---
 
-## 🚧 Limitações
+## Dicas Finais
 
-O DengueBot é um **protótipo educacional**.
-
-A aplicação não substitui profissionais ou serviços de saúde e não deve ser utilizada para diagnóstico, prescrição de medicamentos ou definição de tratamentos.
-
-As respostas também estão limitadas às informações disponíveis na base de conhecimento utilizada pelo projeto.
-
-Durante os testes, foram identificadas situações em que o modelo pode complementar respostas com informações que não estão explicitamente presentes na base. Esse comportamento representa uma limitação do uso de modelos de linguagem e uma oportunidade de melhoria futura.
-
----
-
-## 🔮 Possíveis Melhorias Futuras
-
-Entre as possibilidades de evolução do projeto estão:
-
-- implementação de uma validação automática das respostas;
-- expansão da base de conhecimento;
-- inclusão de novas fontes oficiais de informação;
-- melhoria do controle de respostas fora do escopo;
-- implementação de métricas técnicas de observabilidade;
-- avaliação com um grupo maior de usuários;
-- evolução da interface da aplicação.
+1. **Comece pelo prompt:** Um bom system prompt ajuda a definir o comportamento e os limites do agente.
+2. **Organize a base de conhecimento:** Informações estruturadas ajudam o agente a responder de forma mais consistente.
+3. **Foque na segurança:** Em aplicações relacionadas à saúde, é importante evitar informações inventadas e orientações inadequadas.
+4. **Teste cenários reais:** Simule perguntas que uma pessoa usuária faria de verdade.
+5. **Registre os resultados:** A avaliação ajuda a identificar pontos fortes e oportunidades de melhoria.
+6. **Seja direto no pitch:** 3 minutos passam rápido; apresente o problema, a solução e o funcionamento de forma objetiva.
 
 ---
 
-## 📌 Projeto DIO
+## Repositório Base do Desafio
 
-Este projeto foi desenvolvido como parte do bootcamp do Bradesco com a DIO, adaptando o contexto original de um agente financeiro para uma aplicação educativa relacionada à dengue e à saúde pública.
+Este projeto foi desenvolvido a partir do desafio **Construa Seu Assistente Virtual Com Inteligência Artificial**, da DIO.
 
-A adaptação permitiu aplicar os conceitos propostos pelo desafio em um problema relacionado à área de interesse do projeto: **tecnologia, dados, inteligência artificial e saúde**.
+📚 **Repositório Base:**  
+[https://github.com/digitalinnovationone/dio-lab-bia-do-futuro](https://github.com/digitalinnovationone/dio-lab-bia-do-futuro)
+
+📚 **Repositório de Exemplo:**  
+[https://github.com/falvojr/dio-lab-bia-do-futuro](https://github.com/falvojr/dio-lab-bia-do-futuro)
+
+---
+
+## Projeto
+
+O **DengueBot** demonstra uma aplicação de Inteligência Artificial Generativa integrada a uma base de conhecimento local e uma interface conversacional.
+
+O projeto foi desenvolvido como um protótipo educacional, aplicando os conceitos propostos pelo desafio em um contexto relacionado à **saúde, tecnologia, dados e Inteligência Artificial**.
+
+> **Importante:** O DengueBot é um assistente educativo e não substitui profissionais ou serviços de saúde. Não realiza diagnósticos, não prescreve medicamentos e não define tratamentos.
