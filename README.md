@@ -1,149 +1,281 @@
-# 🤖 Agente Financeiro Inteligente com IA Generativa
+# 🦟 DengueBot — Assistente Educativo sobre Dengue com IA
 
-## Contexto
+## 📌 Sobre o Projeto
 
-Os assistentes virtuais no setor financeiro estão evoluindo de simples chatbots reativos para **agentes inteligentes e proativos**. Neste desafio, você vai idealizar e prototipar um agente financeiro que utiliza IA Generativa para:
+O **DengueBot** é um assistente virtual educativo desenvolvido como projeto prático do desafio **BIA do Futuro**, da DIO.
 
-- **Antecipar necessidades** ao invés de apenas responder perguntas
-- **Personalizar** sugestões com base no contexto de cada cliente
-- **Cocriar soluções** financeiras de forma consultiva
-- **Garantir segurança** e confiabilidade nas respostas (anti-alucinação)
+A proposta original do desafio é desenvolver um agente inteligente utilizando IA Generativa, base de conhecimento e mecanismos de segurança. Neste projeto, o contexto financeiro original foi adaptado para a área da **saúde pública**, com foco na educação e prevenção da dengue.
 
-> [!TIP]
-> Na pasta [`examples/`](./examples/) você encontra referências de implementação para cada etapa deste desafio.
+O DengueBot foi desenvolvido para responder perguntas sobre:
 
----
+- 🦟 Aedes aegypti;
+- 🔄 ciclo de vida do mosquito;
+- 💧 possíveis criadouros;
+- 🛡️ prevenção da dengue;
+- 🤒 sintomas comuns;
+- ⚠️ sinais de alerta.
 
-## O Que Você Deve Entregar
-
-### 1. Documentação do Agente
-
-Defina **o que** seu agente faz e **como** ele funciona:
-
-- **Caso de Uso:** Qual problema financeiro ele resolve? (ex: consultoria de investimentos, planejamento de metas, alertas de gastos)
-- **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
-- **Arquitetura:** Fluxo de dados e integração com a base de conhecimento
-- **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
-
-📄 **Template:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
+O agente utiliza uma base de conhecimento local e um modelo de linguagem executado localmente, buscando manter as respostas limitadas às informações disponíveis no projeto.
 
 ---
 
-### 2. Base de Conhecimento
+## 🎯 Objetivo
 
-Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alimentar seu agente:
+Facilitar o acesso a informações educativas sobre dengue por meio de uma interface conversacional simples e acessível.
+
+O projeto também busca demonstrar, na prática, conceitos de:
+
+- Inteligência Artificial Generativa;
+- Engenharia de Prompts;
+- integração entre LLM e base de conhecimento;
+- desenvolvimento de aplicações com Python;
+- segurança e prevenção de alucinações em aplicações de IA;
+- avaliação de respostas de um agente virtual.
+
+---
+
+## 🧠 Como o DengueBot Funciona
+
+O funcionamento da aplicação pode ser resumido pelo seguinte fluxo:
+
+```mermaid
+flowchart TD
+    A[Usuário] --> B[Interface Streamlit]
+    B --> C[DengueBot]
+    C --> D[Modelo Qwen2.5 3B]
+    D --> E[Base de Conhecimento]
+    E --> D
+    D --> F[Resposta]
+    F --> A
+```
+
+A aplicação carrega os arquivos da base de conhecimento, monta o contexto utilizado pelo modelo e envia a pergunta do usuário juntamente com as instruções do DengueBot.
+
+O modelo utilizado é o **Qwen2.5 3B**, executado localmente através do **Ollama**.
+
+---
+
+## 📚 Base de Conhecimento
+
+A base de conhecimento está localizada na pasta `data/`.
 
 | Arquivo | Formato | Descrição |
-|---------|---------|-----------|
-| `transacoes.csv` | CSV | Histórico de transações do cliente |
-| `historico_atendimento.csv` | CSV | Histórico de atendimentos anteriores |
-| `perfil_investidor.json` | JSON | Perfil e preferências do cliente |
-| `produtos_financeiros.json` | JSON | Produtos e serviços disponíveis |
+|---|---|---|
+| `aedes_aegypti.json` | JSON | Informações sobre o mosquito, ciclo de vida, criadouros e prevenção |
+| `prevencao.json` | JSON | Medidas para prevenção da dengue |
+| `sintomas.json` | JSON | Sintomas comuns e sinais de alerta |
+| `historico_atendimento.csv` | CSV | Histórico fictício de interações relacionadas ao tema |
 
-Você pode adaptar ou expandir esses dados conforme seu caso de uso.
-
-📄 **Template:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
+Os dados são utilizados como contexto para orientar as respostas do agente.
 
 ---
 
-### 3. Prompts do Agente
+## 🛡️ Segurança e Controle de Respostas
 
-Documente os prompts que definem o comportamento do seu agente:
+Como o DengueBot é voltado para educação em saúde, foram utilizadas regras para reduzir respostas inadequadas ou informações inventadas.
 
-- **System Prompt:** Instruções gerais de comportamento e restrições
-- **Exemplos de Interação:** Cenários de uso com entrada e saída esperada
-- **Tratamento de Edge Cases:** Como o agente lida com situações limite
+O agente é instruído a:
 
-📄 **Template:** [`docs/03-prompts.md`](./docs/03-prompts.md)
+- utilizar as informações disponíveis na base de conhecimento;
+- não inventar informações;
+- não utilizar conhecimento externo deliberadamente;
+- informar quando uma informação não está disponível na base;
+- não realizar diagnósticos;
+- não prescrever medicamentos;
+- não definir tratamentos;
+- orientar a procura de um profissional de saúde em situações relacionadas a tratamento ou situações pessoais de saúde.
 
----
-
-### 4. Aplicação Funcional
-
-Desenvolva um **protótipo funcional** do seu agente:
-
-- Chatbot interativo (sugestão: Streamlit, Gradio ou similar)
-- Integração com LLM (via API ou modelo local)
-- Conexão com a base de conhecimento
-
-📁 **Pasta:** [`src/`](./src/)
+Além disso, determinadas perguntas relacionadas a medicamentos e tratamento possuem uma validação antes da chamada ao modelo, evitando que o agente gere recomendações de medicamentos.
 
 ---
 
-### 5. Avaliação e Métricas
+## 💬 Exemplos de Perguntas
 
-Descreva como você avalia a qualidade do seu agente:
+### Sintomas
 
-**Métricas Sugeridas:**
-- Precisão/assertividade das respostas
-- Taxa de respostas seguras (sem alucinações)
-- Coerência com o perfil do cliente
+> Quais são os sintomas comuns da dengue?
 
-📄 **Template:** [`docs/04-metricas.md`](./docs/04-metricas.md)
+O agente consulta os dados classificados como `sintoma_comum` na base de conhecimento.
+
+### Sinais de alerta
+
+> Quais são os sinais de alerta da dengue?
+
+O agente consulta os dados classificados como `sinal_de_alerta`.
+
+### Prevenção
+
+> Como prevenir a dengue?
+
+O agente utiliza as medidas disponíveis em `prevencao.json`.
+
+### Aedes aegypti
+
+> Qual é o ciclo de vida do Aedes aegypti?
+
+A resposta utiliza a informação disponível na base sobre as fases de desenvolvimento do mosquito.
+
+### Informação não disponível
+
+> Qual é a cor do Aedes aegypti?
+
+Quando a informação não está disponível na base, o agente informa sua limitação.
+
+### Medicamentos
+
+> Qual remédio devo tomar para dengue?
+
+O agente não fornece indicação de medicamento ou tratamento e orienta a procura de um profissional de saúde.
 
 ---
 
-### 6. Pitch
+## 🧪 Avaliação e Métricas
 
-Grave um **pitch de 3 minutos** (estilo elevador) apresentando:
+O DengueBot foi avaliado utilizando testes estruturados envolvendo diferentes tipos de perguntas.
 
-- Qual problema seu agente resolve?
-- Como ele funciona na prática?
-- Por que essa solução é inovadora?
+Foram testados cenários relacionados a:
 
-📄 **Template:** [`docs/05-pitch.md`](./docs/05-pitch.md)
+- sintomas comuns;
+- sinais de alerta;
+- prevenção;
+- ciclo de vida do mosquito;
+- informações inexistentes na base;
+- medicamentos;
+- situações pessoais de saúde;
+- perguntas fora do escopo;
+- tentativas de induzir o modelo a utilizar conhecimento externo.
+
+As principais métricas consideradas foram:
+
+| Métrica | Objetivo |
+|---|---|
+| **Assertividade** | Verificar se a resposta está de acordo com a pergunta e a base |
+| **Segurança** | Verificar se o agente evita informações não disponíveis e orientações médicas indevidas |
+| **Coerência** | Verificar se o comportamento permanece adequado ao papel do DengueBot |
+
+Os resultados e cenários detalhados estão disponíveis em:
+
+[`docs/04-metricas.md`](./docs/04-metricas.md)
 
 ---
 
-## Ferramentas Sugeridas
+## 🖥️ Aplicação
 
-Todas as ferramentas abaixo possuem versões gratuitas:
+A interface foi desenvolvida utilizando **Streamlit**, proporcionando uma experiência de conversa diretamente pelo navegador.
 
-| Categoria | Ferramentas |
-|-----------|-------------|
-| **LLMs** | [ChatGPT](https://chat.openai.com/), [Copilot](https://copilot.microsoft.com/), [Gemini](https://gemini.google.com/), [Claude](https://claude.ai/), [Ollama](https://ollama.ai/) |
-| **Desenvolvimento** | [Streamlit](https://streamlit.io/), [Gradio](https://www.gradio.app/), [Google Colab](https://colab.research.google.com/) |
-| **Orquestração** | [LangChain](https://www.langchain.com/), [LangFlow](https://www.langflow.org/), [CrewAI](https://www.crewai.com/) |
-| **Diagramas** | [Mermaid](https://mermaid.js.org/), [Draw.io](https://app.diagrams.net/), [Excalidraw](https://excalidraw.com/) |
+O código principal da aplicação está em:
+
+[`src/app.py`](./src/app.py)
 
 ---
 
-## Estrutura do Repositório
+## ⚙️ Tecnologias Utilizadas
 
+| Tecnologia | Utilização |
+|---|---|
+| **Python** | Desenvolvimento da aplicação |
+| **Streamlit** | Interface web do chatbot |
+| **Ollama** | Execução local do modelo de linguagem |
+| **Qwen2.5 3B** | Modelo de linguagem utilizado |
+| **JSON** | Armazenamento da base de conhecimento |
+| **CSV** | Armazenamento do histórico fictício |
+| **Git/GitHub** | Versionamento do projeto |
+| **Mermaid** | Diagrama da arquitetura |
+
+---
+
+## ▶️ Como Executar
+
+### 1. Pré-requisitos
+
+É necessário ter instalado:
+
+- Python;
+- Ollama;
+- modelo `qwen2.5:3b`.
+
+### 2. Instalar as dependências
+
+No terminal, dentro da pasta do projeto:
+
+```bash
+pip install pandas streamlit ollama
 ```
-📁 lab-agente-financeiro/
+
+### 3. Baixar o modelo
+
+```bash
+ollama pull qwen2.5:3b
+```
+
+### 4. Executar a aplicação
+
+```bash
+streamlit run src/app.py
+```
+
+Após executar o comando, o Streamlit disponibilizará a aplicação no navegador.
+
+---
+
+## 📁 Estrutura do Repositório
+
+```text
+dio-lab-bia-do-futuro/
 │
 ├── 📄 README.md
 │
-├── 📁 data/                          # Dados mockados para o agente
-│   ├── historico_atendimento.csv     # Histórico de atendimentos (CSV)
-│   ├── perfil_investidor.json        # Perfil do cliente (JSON)
-│   ├── produtos_financeiros.json     # Produtos disponíveis (JSON)
-│   └── transacoes.csv                # Histórico de transações (CSV)
+├── 📁 data/
+│   ├── aedes_aegypti.json
+│   ├── historico_atendimento.csv
+│   ├── prevencao.json
+│   └── sintomas.json
 │
-├── 📁 docs/                          # Documentação do projeto
-│   ├── 01-documentacao-agente.md     # Caso de uso e arquitetura
-│   ├── 02-base-conhecimento.md       # Estratégia de dados
-│   ├── 03-prompts.md                 # Engenharia de prompts
-│   ├── 04-metricas.md                # Avaliação e métricas
-│   └── 05-pitch.md                   # Roteiro do pitch
+├── 📁 docs/
+│   ├── 01-documentacao-agente.md
+│   ├── 02-base-conhecimento.md
+│   ├── 03-prompts.md
+│   ├── 04-metricas.md
+│   └── 05-pitch.md
 │
-├── 📁 src/                           # Código da aplicação
-│   └── app.py                        # (exemplo de estrutura)
+├── 📁 src/
+│   └── app.py
 │
-├── 📁 assets/                        # Imagens e diagramas
-│   └── ...
+├── 📁 assets/
 │
-└── 📁 examples/                      # Referências e exemplos
-    └── README.md
+└── 📁 examples/
 ```
 
 ---
 
-## Dicas Finais
+## 🚧 Limitações
 
-1. **Comece pelo prompt:** Um bom system prompt é a base de um agente eficaz
-2. **Use os dados mockados:** Eles garantem consistência e evitam problemas com dados sensíveis
-3. **Foque na segurança:** No setor financeiro, evitar alucinações é crítico
-4. **Teste cenários reais:** Simule perguntas que um cliente faria de verdade
-5. **Seja direto no pitch:** 3 minutos passam rápido, vá ao ponto
+O DengueBot é um **protótipo educacional**.
+
+A aplicação não substitui profissionais ou serviços de saúde e não deve ser utilizada para diagnóstico, prescrição de medicamentos ou definição de tratamentos.
+
+As respostas também estão limitadas às informações disponíveis na base de conhecimento utilizada pelo projeto.
+
+Durante os testes, foram identificadas situações em que o modelo pode complementar respostas com informações que não estão explicitamente presentes na base. Esse comportamento representa uma limitação do uso de modelos de linguagem e uma oportunidade de melhoria futura.
+
+---
+
+## 🔮 Possíveis Melhorias Futuras
+
+Entre as possibilidades de evolução do projeto estão:
+
+- implementação de uma validação automática das respostas;
+- expansão da base de conhecimento;
+- inclusão de novas fontes oficiais de informação;
+- melhoria do controle de respostas fora do escopo;
+- implementação de métricas técnicas de observabilidade;
+- avaliação com um grupo maior de usuários;
+- evolução da interface da aplicação.
+
+---
+
+## 📌 Projeto DIO
+
+Este projeto foi desenvolvido como parte do bootcamp do Bradesco com a DIO, adaptando o contexto original de um agente financeiro para uma aplicação educativa relacionada à dengue e à saúde pública.
+
+A adaptação permitiu aplicar os conceitos propostos pelo desafio em um problema relacionado à área de interesse do projeto: **tecnologia, dados, inteligência artificial e saúde**.
